@@ -10,4 +10,4 @@ mkdir web
 mv docsRedirect.html index.html
 git add *
 git commit -m "chore: Update Doxygen Docs"
-git push %gitRepo% docs
+git push --force %gitRepo% docs
