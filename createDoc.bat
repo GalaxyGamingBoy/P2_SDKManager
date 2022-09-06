@@ -5,5 +5,9 @@ cd docs
 git clone %gitRepo%
 cd P2_SDKManager
 git checkout -b docs
+doxygen
 mkdir web
-cd web
+mv docsRedirect.html index.html
+git add *
+git commit -m "chore: Update Doxygen Docs"
+git push %gitRepo% docs
