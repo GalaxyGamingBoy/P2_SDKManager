@@ -11,3 +11,5 @@ mv docsRedirect.html index.html
 git add *
 git commit -m "chore: Update Doxygen Docs"
 git push --force %gitRepo% docs
+cd ..\..
+rm -rf docs
