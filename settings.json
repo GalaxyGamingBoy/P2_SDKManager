@@ -1,0 +1,10 @@
+{
+    "paths": {
+        "tools": {
+            "hammer": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Portal 2\\bin\\hammer.exe",
+            "face_poser": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Portal 2\\bin\\hlfaceposer.exe",
+            "model_viewer": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Portal 2\\bin\\hlmv.exe"
+        },
+        "gameinfo": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Portal 2\\portal2"
+    }
+}
