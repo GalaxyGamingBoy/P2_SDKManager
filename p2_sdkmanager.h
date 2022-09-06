@@ -22,6 +22,7 @@ class P2_SDKManager : public QMainWindow
         void writeJSONFile(QString fileName, QJsonDocument jsonData);
         bool fileExists(QString fileName);
         void reloadSettings();
+        void runProccess(QString executable, QString flags);
         P2_SDKManager(QWidget *parent = nullptr);
         ~P2_SDKManager();
 
@@ -29,6 +30,12 @@ class P2_SDKManager : public QMainWindow
         void on_actionSettings_triggered();
 
         void on_gameInfoBrowse_clicked();
+
+        void on_hammer_clicked();
+
+        void on_facePoser_clicked();
+
+        void on_modelViewer_clicked();
 
     private:
         Ui::P2_SDKManager *ui;

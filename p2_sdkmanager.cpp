@@ -4,6 +4,7 @@
 #include "QJsonDocument"
 #include "changesettings.h"
 #include "QFileDialog"
+#include "QProcess"
 
 //!
 //! \brief P2_SDKManager::P2_SDKManager
@@ -23,9 +24,8 @@ P2_SDKManager::P2_SDKManager(QWidget *parent)
             P2_SDKManager::windowInitialization(ui);
 
         } else {
-            QTextStream(stdout) << "Settings file not Found, Opening Settings\n";
-            P2_SDKManager::on_actionSettings_triggered();
-            P2_SDKManager::windowInitialization(ui);
+            QTextStream(stdout) << "Settings file not Found. Exiting...\nTemplate can be found here: https://github.com/GalaxyGamingBoy/P2_SDKManager/blob/master/settings.json\n";
+            exit(1);
         }
     }
 
@@ -91,6 +91,16 @@ void P2_SDKManager::writeJSONFile(QString fileName, QJsonDocument jsonData)
     }
 
 //!
+//! \brief P2_SDKManager::runProccess
+//! \param executable to run
+//! \param flags to append
+//!
+void P2_SDKManager::runProccess(QString executable, QString flags)
+    {
+        QProcess::startDetached(executable + " " + flags);
+    }
+
+//!
 //! \brief P2_SDKManager::on_actionSettings_triggered
 //! Opens the settings menu
 //!
@@ -118,12 +128,42 @@ void P2_SDKManager::on_gameInfoBrowse_clicked()
         qFileDialog.exec();
 
         // Get path and update settings
-        QString gameInfoPath = qFileDialog.directoryUrl().path().remove(0, 1);
-        ui->gameInfoLabel->setText(gameInfoPath);
-        changeSettings.setSettings(P2_SDKManager::settings);
-        changeSettings.writeSettingValue("paths", "gameinfo", gameInfoPath);
+        if ( qFileDialog.selectedFiles().length() > 0 )
+        {
+            QString gameInfoPath = qFileDialog.directoryUrl().path().remove(0, 1);
+            ui->gameInfoLabel->setText(gameInfoPath);
+            changeSettings.setSettings(P2_SDKManager::settings);
+            changeSettings.writeSettingValue("paths", "gameinfo", gameInfoPath);
+        }
 
         // Write setting JSON
         P2_SDKManager::writeJSONFile(P2_SDKManager::settingsFile, changeSettings.settings);
+}
+
+//!
+//! \brief P2_SDKManager::on_hammer_clicked
+//! Runs when the Hammer button is clicked
+//!
+void P2_SDKManager::on_hammer_clicked()
+{
+        P2_SDKManager::runProccess(P2_SDKManager::settings["paths"]["hammer"].toString(), "");
+}
+
+//!
+//! \brief P2_SDKManager::on_facePoser_clicked
+//! Runs when the Face Poser button is clicked
+//!
+void P2_SDKManager::on_facePoser_clicked()
+{
+        P2_SDKManager::runProccess(P2_SDKManager::settings["paths"]["face_poser"].toString(), "-game \"" + P2_SDKManager::settings["paths"]["gameinfo"].toString() + "\"");
+}
+
+//!
+//! \brief P2_SDKManager::on_modelViewer_clicked
+//! Runs when the model viewer button is clicked
+//!
+void P2_SDKManager::on_modelViewer_clicked()
+{
+    P2_SDKManager::runProccess(P2_SDKManager::settings["paths"]["model_viewer"].toString(), "-game \"" + P2_SDKManager::settings["paths"]["gameinfo"].toString() + "\"");
 }
 

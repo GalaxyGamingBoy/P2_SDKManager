@@ -92,7 +92,7 @@ void ChangeSettings::on_facePoserBrowse_clicked()
         QFileDialog qFileDialog;
         qFileDialog.setNameFilter("hlfaceposer.*");
         qFileDialog.exec();
-        if (qFileDialog.selectedFiles().length() > 1)
+        if (qFileDialog.selectedFiles().length() > 0)
         {
             ui->facePoserBrowseLabel->setText(qFileDialog.selectedFiles()[0]);
             ChangeSettings::writeSettingValue("paths", "face_poser", qFileDialog.selectedFiles()[0]);
@@ -108,7 +108,7 @@ void ChangeSettings::on_modelViewerBrowse_clicked()
         QFileDialog qFileDialog;
         qFileDialog.setNameFilter("hlmv.*");
         qFileDialog.exec();
-        if (qFileDialog.selectedFiles().length() > 1)
+        if (qFileDialog.selectedFiles().length() > 0)
         {
             ui->modelViewerBrowseLabel->setText(qFileDialog.selectedFiles()[0]);
             ChangeSettings::writeSettingValue("paths", "model_viewer", qFileDialog.selectedFiles()[0]);
