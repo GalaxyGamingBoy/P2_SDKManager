@@ -5,6 +5,7 @@
 #include "changesettings.h"
 #include "QFileDialog"
 #include "QProcess"
+#include "QDesktopServices"
 
 //!
 //! \brief P2_SDKManager::P2_SDKManager
@@ -101,6 +102,16 @@ void P2_SDKManager::runProccess(QString executable, QString flags)
     }
 
 //!
+//! \brief P2_SDKManager::openWebBrowser
+//! Open the native web browser
+//! \param webpage the url to open
+//!
+void P2_SDKManager::openWebBrowser(QString webpage)
+    {
+        QDesktopServices::openUrl(QUrl(webpage));
+    }
+
+//!
 //! \brief P2_SDKManager::on_actionSettings_triggered
 //! Opens the settings menu
 //!
@@ -165,5 +176,23 @@ void P2_SDKManager::on_facePoser_clicked()
 void P2_SDKManager::on_modelViewer_clicked()
 {
     P2_SDKManager::runProccess(P2_SDKManager::settings["paths"]["model_viewer"].toString(), "-game \"" + P2_SDKManager::settings["paths"]["gameinfo"].toString() + "\"");
+}
+
+//!
+//! \brief P2_SDKManager::on_VDCP2LevelDesign_clicked
+//! Opens the Valve Developer Community to the section of P2 Level Design on the native web browser
+//!
+void P2_SDKManager::on_VDCP2LevelDesign_clicked()
+{
+        P2_SDKManager::openWebBrowser("https://developer.valvesoftware.com/wiki/Category:Portal_2_Level_Design");
+}
+
+//!
+//! \brief P2_SDKManager::on_ChaosWiki_clicked
+//! Opens the Chaos Wiki on the native web browser
+//!
+void P2_SDKManager::on_ChaosWiki_clicked()
+{
+    P2_SDKManager::openWebBrowser("https://chaosinitiative.github.io/Wiki/");
 }
 

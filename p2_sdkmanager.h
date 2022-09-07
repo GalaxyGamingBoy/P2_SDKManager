@@ -19,10 +19,11 @@ class P2_SDKManager : public QMainWindow
         QString settingsFile = "settings.json";
         QJsonDocument settings;
         QJsonDocument loadJSONFile(QString fileName);
-        void writeJSONFile(QString fileName, QJsonDocument jsonData);
         bool fileExists(QString fileName);
+        void writeJSONFile(QString fileName, QJsonDocument jsonData);
         void reloadSettings();
         void runProccess(QString executable, QString flags);
+        void openWebBrowser(QString webpage);
         P2_SDKManager(QWidget *parent = nullptr);
         ~P2_SDKManager();
 
@@ -36,6 +37,10 @@ class P2_SDKManager : public QMainWindow
         void on_facePoser_clicked();
 
         void on_modelViewer_clicked();
+
+        void on_VDCP2LevelDesign_clicked();
+
+        void on_ChaosWiki_clicked();
 
     private:
         Ui::P2_SDKManager *ui;

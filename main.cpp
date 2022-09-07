@@ -2,6 +2,8 @@
 
 #include <QApplication>
 
+// PROJECT VERSION: v1.1.0
+
 //!
 //! \brief qMain
 //! Main Function
