@@ -316,6 +316,7 @@
      <string>File</string>
     </property>
     <addaction name="actionSettings"/>
+    <addaction name="actionUpdate_Latest_Version"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -326,6 +327,11 @@
    </property>
    <property name="toolTip">
     <string>Opens Settings</string>
+   </property>
+  </action>
+  <action name="actionUpdate_Latest_Version">
+   <property name="text">
+    <string>Update Latest Version</string>
    </property>
   </action>
  </widget>
