@@ -205,9 +205,12 @@ void P2_SDKManager::on_actionUpdate_Latest_Version_triggered()
 #ifdef Q_OS_WINDOWS
         QTextStream(stdout) << "Version: Windows\n";
         P2_SDKManager::runProccess("python .\\AutoUpdater.py P2_SDKManager release_p2-sdk-manager_win64 p2-sdk-manager", "");
+        exit(0);
 #elif Q_OS_LINUX
         QTextStream(stdout) << "Version: Linux\n";
         P2_SDKManager::runProccess("python3 ./AutoUpdater.py P2_SDKManager release_p2-sdk-manager_gnulinux.debian-compile p2-sdk-manager", "");
+        exit(0);
+
 #elif Q_OS_MACX
         QTextStream(stdout) << "Version: Mac\n";
         QMessageBox messageBox;

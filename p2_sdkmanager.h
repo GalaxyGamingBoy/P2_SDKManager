@@ -42,6 +42,8 @@ class P2_SDKManager : public QMainWindow
 
         void on_ChaosWiki_clicked();
 
+        void on_actionUpdate_Latest_Version_triggered();
+
     private:
         Ui::P2_SDKManager *ui;
         void windowInitialization(Ui::P2_SDKManager *ui);

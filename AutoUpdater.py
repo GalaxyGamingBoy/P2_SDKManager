@@ -1,7 +1,7 @@
 import sys, os
 from urllib import request
 from zipfile import ZipFile
-
+from tkinter import messagebox
 argv = sys.argv
 argc = len(argv)
 
@@ -47,6 +47,7 @@ def run():
         print("Starting CleanUp...")
         cleanup()
         print("CleanUp Complete!")
+        messagebox.showinfo(title="Update Complete!", message="Update is Completed! Run the App to View Changes!")
         print("\nUpdate Complete!")
     else:
         printUsage()
