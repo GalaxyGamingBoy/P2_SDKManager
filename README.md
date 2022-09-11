@@ -1,10 +1,12 @@
 # P2_SDKManager
-
 A simple Portal 2 SDK Manager.   
 Uses the open source QT 6 ( 6.3.1 )
    
 Has support for both Linux, Windows, Mac.   
 Prebuilt Binaries might not be avainable to all versions.   
+
+## Notes
+The app uses Roboto for fonts.
 
 ## Contributions
 You are free to open a pull request with more features or a fix.   
