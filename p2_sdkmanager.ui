@@ -30,6 +30,7 @@
         <font>
          <family>Roboto</family>
          <pointsize>14</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -162,6 +163,7 @@
           <font>
            <family>Roboto</family>
            <pointsize>12</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -232,6 +234,7 @@
         <font>
          <family>Roboto</family>
          <pointsize>12</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -308,7 +311,7 @@
      <x>0</x>
      <y>0</y>
      <width>280</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -316,7 +319,6 @@
      <string>File</string>
     </property>
     <addaction name="actionSettings"/>
-    <addaction name="actionUpdate_Latest_Version"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -327,11 +329,6 @@
    </property>
    <property name="toolTip">
     <string>Opens Settings</string>
-   </property>
-  </action>
-  <action name="actionUpdate_Latest_Version">
-   <property name="text">
-    <string>Update Latest Version</string>
    </property>
   </action>
  </widget>
