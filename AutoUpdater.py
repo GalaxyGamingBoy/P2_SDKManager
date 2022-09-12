@@ -6,18 +6,18 @@ argv = sys.argv
 argc = len(argv)
 
 argc = 4
-argv = ["P2_SDKManager", "release_p2-sdk-manager_win64", "p2_sdk_manager"]
+argv = ["AutoUpdater.py", "P2_SDKManager", "release_p2-sdk-manager_win64", "p2_sdk_manager"]
 
 if sys.platform.startswith("win32") or sys.platform.startswith("cygwin"):
-    argv[1] = "release_p2-sdk-manager_win64.zip"
+    argv[2] = "release_p2-sdk-manager_win64"
 elif sys.platform.startswith("linux"):
     if "arch" in os.uname().release:
-        argv[1] = "release_p2-sdk-manager_gnulinux.arch-compile.zip"
+        argv[2] = "release_p2-sdk-manager_gnulinux.arch-compile"
     else:
-        argv[1] = "release_p2-sdk-manager_gnulinux.debian-compile.zip"
+        argv[2] = "release_p2-sdk-manager_gnulinux.debian-compile"
 else:
     print("OS Not Supported")
-    exit(1)
+    exit(2)
 
 def printUsage():
     print("Usage: python(3) AutoUpdater.py [github_project] [zip_scheme] [executable_name]")
@@ -73,6 +73,7 @@ def run():
 
 if __name__ == "__main__":
     if input("Start Update? n/Y: ") == "Y":
-        run()
+        # run()
+        downloadZIP(f"https://github.com/GalaxyGamingBoy/{argv[1]}/releases/latest/download/{argv[2]}.zip", "update.zip")
     else:
         print("Update Canceled")
