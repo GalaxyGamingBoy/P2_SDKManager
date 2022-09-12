@@ -5,6 +5,20 @@ from tkinter import messagebox
 argv = sys.argv
 argc = len(argv)
 
+argc = 4
+argv = ["P2_SDKManager", "release_p2-sdk-manager_win64", "p2_sdk_manager"]
+
+if sys.platform.startswith("win32") or sys.platform.startswith("cygwin"):
+    argv[1] = "release_p2-sdk-manager_win64.zip"
+elif sys.platform.startswith("linux"):
+    if "arch" in os.uname().release:
+        argv[1] = "release_p2-sdk-manager_gnulinux.arch-compile.zip"
+    else:
+        argv[1] = "release_p2-sdk-manager_gnulinux.debian-compile.zip"
+else:
+    print("OS Not Supported")
+    exit(1)
+
 def printUsage():
     print("Usage: python(3) AutoUpdater.py [github_project] [zip_scheme] [executable_name]")
 
@@ -29,6 +43,8 @@ def cleanup():
 
 def run():
     if argumentCheck():
+        messagebox.showinfo(title="Update Started!", message="The Update has just started!")
+
         # Download the update ZIP
         print("Starting Download...")
         downloadZIP(f"https://github.com/GalaxyGamingBoy/{argv[1]}/releases/latest/download/{argv[2]}.zip", "update.zip")
@@ -56,4 +72,7 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    if input("Start Update? n/Y: ") == "Y":
+        run()
+    else:
+        print("Update Canceled")
